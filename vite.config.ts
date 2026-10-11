@@ -205,7 +205,8 @@ function vitePluginStorageProxy(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/travel_Turkey2026/" : "/",
   plugins,
   resolve: {
     alias: {
@@ -238,4 +239,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));
